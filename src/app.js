@@ -4,6 +4,8 @@ import morgan from 'morgan';
 import helmet from 'helmet';
 import cors from 'cors';
 import bodyParser from 'body-parser';
+import swaggerUi from 'swagger-ui-express';
+import YAML from 'yamljs';
 
 import authRoutes from './routes/auth.routes.js';
 import productRoutes from './routes/product.routes.js';
@@ -12,7 +14,11 @@ import orderRoutes from './routes/order.routes.js';
 import categoryRoutes from './routes/category.routes.js';
 import errorMiddleware from './middlewares/error.middleware.js';
 
+
 const app = express();
+
+const swaggerDocument = YAML.load('./swagger/swagger.yaml');
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.use(helmet());
 app.use(cors());

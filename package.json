@@ -4,8 +4,8 @@
   "description": "E-commerce API - Take-home test (Express + Mongoose)",
   "type": "module",
   "scripts": {
-  "start": "node server.js",
-  "dev": "node --env-file=.env server.js"
+    "start": "node server.js",
+    "dev": "node --env-file=.env server.js"
   },
   "author": "qumail",
   "license": "MIT",
@@ -19,7 +19,9 @@
     "helmet": "^7.0.0",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^7.4.2",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "swagger-ui-express": "^5.0.1",
+    "yamljs": "^0.3.0"
   },
   "devDependencies": {
     "nodemon": "^3.0.1"
