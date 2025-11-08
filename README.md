@@ -113,6 +113,8 @@ erDiagram
     ORDER_ITEM }o--|| PRODUCT : "references"
 
     CATEGORY ||--o{ PRODUCT : "categorizes"
+
+
 🔐 Authentication
 JWT-based authentication with roles:
 
