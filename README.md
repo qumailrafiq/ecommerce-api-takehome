@@ -12,32 +12,26 @@ Implements user authentication, role-based access control, product management, s
 git clone https://github.com/<your-username>/ecommerce-api-takehome.git
 cd ecommerce-api-takehome
 2️⃣ Install Dependencies
-bash
-Copy code
+
 npm install
 3️⃣ Configure Environment
 Create a .env file in the project root:
-
-ini
-Copy code
 PORT=4000
 MONGO_URI=mongodb://localhost:27017/ecommerce_test
 JWT_SECRET=supersecret_jwt_key
 JWT_EXPIRES_IN=1d
+
 4️⃣ Start Server
-bash
-Copy code
 npm run dev
 Server runs at ➜ http://localhost:4000
 
 🧱 Architecture Overview
 This project follows a modular, layered architecture:
 
-markdown
-Copy code
 Controller → Service → Repository → Model → Database
         ↑
       Routes
+
 Layer	Responsibility
 Controllers	Handle HTTP requests and responses.
 Services	Contain business logic (auth, cart, stock updates).
@@ -54,8 +48,7 @@ Makes testing and future scaling (e.g. switch to SQL) easier.
 Keeps the codebase readable and maintainable.
 
 🗺️ Entity Relationship Diagram (ERD)
-mermaid
-Copy code
+
 erDiagram
 
     USER {
@@ -139,20 +132,15 @@ POST	/api/auth/logout	Logout and clear cart (requires token)
 
 Example: Register
 
-bash
-Copy code
 POST /api/auth/register
 Content-Type: application/json
-
 {
   "name": "John Doe",
   "email": "john@example.com",
   "password": "123456"
 }
-Response
 
-json
-Copy code
+Response
 {
   "data": {
     "id": "672be62f...",
@@ -161,6 +149,7 @@ Copy code
     "role": "customer"
   }
 }
+
 🛍️ Products
 Method	Endpoint	Access	Description
 GET	/api/products	Public	List all products with pagination/filtering
@@ -171,8 +160,6 @@ DELETE	/api/products/:id	Admin	Delete product
 
 Example: Filter by category and price
 
-bash
-Copy code
 GET /api/products?category=electronics&minPrice=100&maxPrice=1000&page=1&limit=10
 🛒 Cart
 Method	Endpoint	Description
@@ -183,8 +170,6 @@ DELETE	/api/cart/:productId	Remove product from cart
 
 Example: Add to cart
 
-bash
-Copy code
 POST /api/cart
 Authorization: Bearer <token>
 
@@ -192,10 +177,8 @@ Authorization: Bearer <token>
   "productId": "67301a8d...",
   "quantity": 2
 }
-Response
 
-json
-Copy code
+Response
 {
   "data": {
     "userId": "672be62f...",
@@ -209,6 +192,7 @@ Copy code
     "totalPrice": 400
   }
 }
+
 📦 Orders
 Method	Endpoint	Access	Description
 POST	/api/orders	Customer	Place order from cart
@@ -216,15 +200,10 @@ GET	/api/orders	Customer	Get user’s order history
 GET	/api/orders/all	Admin	Get all orders
 
 Example: Place Order
-
-bash
-Copy code
 POST /api/orders
 Authorization: Bearer <token>
-Response
 
-json
-Copy code
+Response
 {
   "data": {
     "userId": "672be62f...",
@@ -239,6 +218,7 @@ Copy code
     ]
   }
 }
+
 🧠 Architecture Decisions
 Express.js + Mongoose
 
@@ -289,5 +269,3 @@ Qumail Rafiq
 Backend Developer — Node.js / Express / MongoDB
 📧 qumailreshii@gmail.com
 🌐 https://www.linkedin.com/in/qumailreshi/
-
----
