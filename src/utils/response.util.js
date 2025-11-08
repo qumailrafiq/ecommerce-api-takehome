@@ -1,5 +1,3 @@
-function success(res, data, status = 200) {
+export default function success(res, data, status = 200) {
   return res.status(status).json({ data });
 }
-
-module.exports = { success };

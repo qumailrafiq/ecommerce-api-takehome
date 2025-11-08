@@ -1,6 +1,6 @@
-const orderRepo = require('../repositories/order.repo');
-const cartRepo = require('../repositories/cart.repo');
-const productRepo = require('../repositories/product.repo');
+import orderRepo from '../repositories/order.repo.js';
+import cartRepo from '../repositories/cart.repo.js';
+import productRepo from '../repositories/product.repo.js';
 
 class OrderService {
   async placeOrder(userId) {
@@ -51,4 +51,4 @@ class OrderService {
   }
 }
 
-module.exports = new OrderService();
+export default new OrderService();

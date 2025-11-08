@@ -1,16 +1,16 @@
-const express = require('express');
-require('express-async-errors'); // to auto-catch async errors
-const morgan = require('morgan');
-const helmet = require('helmet');
-const cors = require('cors');
-const bodyParser = require('body-parser');
+import express from 'express';
+import 'express-async-errors';
+import morgan from 'morgan';
+import helmet from 'helmet';
+import cors from 'cors';
+import bodyParser from 'body-parser';
 
-const authRoutes = require('./routes/auth.routes');
-const productRoutes = require('./routes/product.routes');
-const cartRoutes = require('./routes/cart.routes');
-const orderRoutes = require('./routes/order.routes');
-const errorMiddleware = require('./middlewares/error.middleware');
-const categoryRoutes = require('./routes/category.routes');
+import authRoutes from './routes/auth.routes.js';
+import productRoutes from './routes/product.routes.js';
+import cartRoutes from './routes/cart.routes.js';
+import orderRoutes from './routes/order.routes.js';
+import categoryRoutes from './routes/category.routes.js';
+import errorMiddleware from './middlewares/error.middleware.js';
 
 const app = express();
 
@@ -32,4 +32,4 @@ app.get('/', (req, res) => res.json({ status: 'ok' }));
 // Error handler
 app.use(errorMiddleware);
 
-module.exports = app;
+export default app;

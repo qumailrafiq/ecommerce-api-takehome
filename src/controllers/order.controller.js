@@ -1,4 +1,4 @@
-const orderService = require('../services/order.service');
+import orderService from '../services/order.service.js';
 
 class OrderController {
   async placeOrder(req, res, next) {
@@ -31,4 +31,4 @@ class OrderController {
   }
 }
 
-module.exports = new OrderController();
+export default new OrderController();

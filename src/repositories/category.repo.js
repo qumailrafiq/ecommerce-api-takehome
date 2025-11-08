@@ -1,4 +1,4 @@
-const Category = require('../models/category.model');
+import Category from '../models/category.model.js';
 
 class CategoryRepository {
   async create(data) {
@@ -18,4 +18,4 @@ class CategoryRepository {
   }
 }
 
-module.exports = new CategoryRepository();
+export default new CategoryRepository();

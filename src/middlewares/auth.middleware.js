@@ -1,7 +1,7 @@
-const jwt = require('jsonwebtoken');
-const userRepo = require('../repositories/user.repo');
+import jwt from 'jsonwebtoken';
+import userRepo from '../repositories/user.repo.js';
 
-const JWT_SECRET = process.env.JWT_SECRET || 'supersecret_jwt_key';
+const JWT_SECRET = process.env.JWT_SECRET;
 
 const requireAuth = async (req, res, next) => {
   try {
@@ -37,4 +37,4 @@ const isAdmin = (req, res, next) => {
   return next();
 };
 
-module.exports = { requireAuth, isAdmin };
+export { requireAuth, isAdmin };

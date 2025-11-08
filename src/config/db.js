@@ -1,11 +1,12 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const connectDB = async () => {
-  await mongoose.connect(process.env.MONGO_URI, {
+  const uri = process.env.MONGO_URI;
+  await mongoose.connect(uri, {
     useNewUrlParser: true,
-    useUnifiedTopology: true,
+    useUnifiedTopology: true
   });
-  console.log(`MongoDB connected to ${process.env.MONGO_URI}`);
+  console.log(`✅ MongoDB connected to ${uri}`);
 };
 
-module.exports = connectDB;
+export default connectDB;

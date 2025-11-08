@@ -1,4 +1,4 @@
-const categoryService = require('../services/category.service');
+import categoryService from '../services/category.service.js';
 
 class CategoryController {
   async create(req, res, next) {
@@ -29,4 +29,4 @@ class CategoryController {
   }
 }
 
-module.exports = new CategoryController();
+export default new CategoryController();

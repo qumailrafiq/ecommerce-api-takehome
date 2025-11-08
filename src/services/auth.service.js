@@ -1,10 +1,11 @@
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
-const userRepo = require('../repositories/user.repo');
-const cartRepo = require('../repositories/cart.repo');
+import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
+import userRepo from '../repositories/user.repo.js';
+import cartRepo from '../repositories/cart.repo.js';
 
-const JWT_SECRET = process.env.JWT_SECRET || 'supersecret_jwt_key';
-const JWT_EXPIRES_IN = process.env.JWT_EXPIRES_IN || '1d';
+const JWT_SECRET = process.env.JWT_SECRET;
+const JWT_EXPIRES_IN = process.env.JWT_EXPIRES_IN;
+
 
 class AuthService {
   async register({ name, email, password, role }) {
@@ -55,4 +56,4 @@ class AuthService {
   }
 }
 
-module.exports = new AuthService();
+export default new AuthService();

@@ -1,5 +1,5 @@
-const cartRepo = require('../repositories/cart.repo');
-const productRepo = require('../repositories/product.repo');
+import cartRepo from '../repositories/cart.repo.js';
+import productRepo from '../repositories/product.repo.js';
 
 class CartService {
   // Get or create cart for user
@@ -84,4 +84,4 @@ class CartService {
   }
 }
 
-module.exports = new CartService();
+export default new CartService();

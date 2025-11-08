@@ -1,7 +1,8 @@
-const express = require('express');
+import express from 'express';
+import categoryController from '../controllers/category.controller.js';
+import { requireAuth, isAdmin } from '../middlewares/auth.middleware.js';
+
 const router = express.Router();
-const categoryController = require('../controllers/category.controller');
-const { requireAuth, isAdmin } = require('../middlewares/auth.middleware');
 
 // Public: list all categories
 router.get('/', categoryController.list);
@@ -10,4 +11,4 @@ router.get('/', categoryController.list);
 router.post('/', requireAuth, isAdmin, categoryController.create);
 router.delete('/:id', requireAuth, isAdmin, categoryController.remove);
 
-module.exports = router;
+export default router;

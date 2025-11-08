@@ -1,4 +1,4 @@
-const categoryRepo = require('../repositories/category.repo');
+import categoryRepo from '../repositories/category.repo.js';
 
 class CategoryService {
   async createCategory(data) {
@@ -29,4 +29,4 @@ class CategoryService {
   }
 }
 
-module.exports = new CategoryService();
+export default new CategoryService();

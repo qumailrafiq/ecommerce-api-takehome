@@ -1,4 +1,4 @@
-const Order = require('../models/order.model');
+import Order from '../models/order.model.js';
 
 class OrderRepository {
   async create(order) {
@@ -6,7 +6,7 @@ class OrderRepository {
   }
 
   async findByUserId(userId) {
-    return Order.find({ userId }).sort({ createdAt: -1 });
+    return Order.find({ userId }).sort({ createdAt: -1 }).populate('items.productId');
   }
 
   async findAll() {
@@ -18,4 +18,4 @@ class OrderRepository {
   }
 }
 
-module.exports = new OrderRepository();
+export default new OrderRepository();
